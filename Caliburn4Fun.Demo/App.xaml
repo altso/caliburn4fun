@@ -1,0 +1,12 @@
+﻿<Application x:Class="Caliburn4Fun.Demo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:demo="clr-namespace:Caliburn4Fun.Demo">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:Caliburn4Fun.Demo"
+                                x:Key="LocalizedStrings" />
+        <demo:DemoBootsrapper x:Key="Bootsrapper" />
+    </Application.Resources>
+</Application>

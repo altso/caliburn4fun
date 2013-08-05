@@ -1,0 +1,43 @@
+﻿<phone:PhoneApplicationPage x:Class="Caliburn4Fun.Demo.Views.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:viewModels="clr-namespace:Caliburn4Fun.Demo.ViewModels"
+                            mc:Ignorable="d"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            shell:SystemTray.Opacity="0"
+                            d:DataContext="{d:DesignInstance viewModels:MainPageViewModel}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="12,49,0,28">
+            <TextBlock Text="CALIBURN4FUN"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       Margin="12,0" />
+            <TextBlock Text="demo"
+                       Margin="9,-7,0,0"
+                       Style="{StaticResource PhoneTextTitle1Style}" />
+        </StackPanel>
+
+        <Grid Grid.Row="1"
+              Margin="12,0,12,0">
+            <StackPanel>
+                <Button Content="{Binding DialogCounter, StringFormat=Show Dialog #\{0\}}"
+                        x:Name="ShowDialog" />
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</phone:PhoneApplicationPage>
