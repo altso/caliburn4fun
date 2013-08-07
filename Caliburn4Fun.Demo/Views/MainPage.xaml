@@ -36,6 +36,12 @@
             <StackPanel>
                 <Button Content="{Binding DialogCounter, StringFormat=Show Dialog #\{0\}}"
                         x:Name="ShowDialog" />
+                <Button Content="{Binding PopupCounter, StringFormat=Show Popup #\{0\}}"
+                        x:Name="ShowPopup" />
+                <Button Content="Dummy Button #1" />
+                <Button Content="Dummy Button #2" />
+                <Button Content="Dummy Button #3" />
+                <Button Content="Dummy Button #4" />
             </StackPanel>
         </Grid>
 

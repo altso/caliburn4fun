@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using Coding4Fun.Toolkit.Controls;
 
 namespace Caliburn.Micro.Coding4Fun
