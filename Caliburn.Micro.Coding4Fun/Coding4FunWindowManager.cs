@@ -33,7 +33,7 @@ namespace Caliburn.Micro.Coding4Fun
                     var propertyInfo = type.GetProperty(setting.Key);
                     if (propertyInfo != null)
                     {
-                        propertyInfo.SetValue(dialog, setting.Value);
+                        propertyInfo.SetValue(dialog, setting.Value, null);
                     }
                 }
             }

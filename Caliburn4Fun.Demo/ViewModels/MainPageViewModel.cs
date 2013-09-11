@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+#if ASYNC
+using TaskEx = System.Threading.Tasks.Task;
+#endif
 
 namespace Caliburn4Fun.Demo.ViewModels
 {
@@ -80,7 +83,7 @@ namespace Caliburn4Fun.Demo.ViewModels
                 Text = "This dialog will be displayed only for 10 seconds."
             };
             _windowManager.ShowDialog(dialogViewModel);
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            await TaskEx.Delay(TimeSpan.FromSeconds(10));
             dialogViewModel.TryClose();
         }
 

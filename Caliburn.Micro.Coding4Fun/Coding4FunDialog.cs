@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using Coding4Fun.Toolkit.Controls;
 using Coding4Fun.Toolkit.Controls.Common;
 using Microsoft.Phone.Controls;
@@ -78,10 +76,17 @@ namespace Caliburn.Micro.Coding4Fun
             ViewModelBinder.Bind(RootModel, host, null);
             Action.SetTarget(host, RootModel);
 
-            host.Closed += (sender, args) => OnCompleted(new PopUpEventArgs<object, PopUpResult>
+            host.Closed += (sender, args) =>
             {
-                Result = PopUpResult.Ok
-            });
+                if (Page != null)
+                {
+                    Page.BackKeyPress -= PageOnBackKeyPress;
+                }
+                OnCompleted(new PopUpEventArgs<object, PopUpResult>
+                {
+                    Result = PopUpResult.Ok
+                });
+            };
         }
 
         private void PageOnBackKeyPress(object sender, CancelEventArgs e)
