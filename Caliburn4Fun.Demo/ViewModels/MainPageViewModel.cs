@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using System.Threading.Tasks;
+using Caliburn.Micro;
 
 namespace Caliburn4Fun.Demo.ViewModels
 {
@@ -67,6 +69,18 @@ namespace Caliburn4Fun.Demo.ViewModels
                 }
             };
             _windowManager.ShowPopup(dialogViewModel);
+        }
+
+        public async void ShowDialogFor10Seconds()
+        {
+            var dialogViewModel = new DialogViewModel
+            {
+                Title = "TryClose() closes the dialog",
+                Text = "This dialog will be displayed only for 10 seconds."
+            };
+            _windowManager.ShowDialog(dialogViewModel);
+            await Task.Delay(TimeSpan.FromSeconds(10));
+            dialogViewModel.TryClose();
         }
     }
 }

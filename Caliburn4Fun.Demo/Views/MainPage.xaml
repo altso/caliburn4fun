@@ -38,7 +38,8 @@
                         x:Name="ShowDialog" />
                 <Button Content="{Binding PopupCounter, StringFormat=Show Popup #\{0\}}"
                         x:Name="ShowPopup" />
-                <Button Content="Dummy Button #1" />
+                <Button Content="Show Dialog for 10 Seconds"
+                        x:Name="ShowDialogFor10Seconds"/>
                 <Button Content="Dummy Button #2" />
                 <Button Content="Dummy Button #3" />
                 <Button Content="Dummy Button #4" />
