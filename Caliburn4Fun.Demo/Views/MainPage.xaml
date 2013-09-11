@@ -40,7 +40,8 @@
                         x:Name="ShowPopup" />
                 <Button Content="Show Dialog for 10 Seconds"
                         x:Name="ShowDialogFor10Seconds"/>
-                <Button Content="Dummy Button #2" />
+                <Button Content="Don't close on back"
+                        x:Name="ShowUnclosableDialog"/>
                 <Button Content="Dummy Button #3" />
                 <Button Content="Dummy Button #4" />
             </StackPanel>

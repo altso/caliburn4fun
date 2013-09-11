@@ -1,6 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Media;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
 using Coding4Fun.Toolkit.Controls;
+using Coding4Fun.Toolkit.Controls.Common;
+using Microsoft.Phone.Controls;
 
 namespace Caliburn.Micro.Coding4Fun
 {
@@ -11,6 +15,8 @@ namespace Caliburn.Micro.Coding4Fun
 
         public static readonly DependencyProperty ContextProperty =
             DependencyProperty.Register("Context", typeof(object), typeof(Coding4FunDialog), new PropertyMetadata(null));
+
+        private PhoneApplicationPage _page;
 
         public object RootModel
         {
@@ -29,9 +35,40 @@ namespace Caliburn.Micro.Coding4Fun
             DefaultStyleKey = typeof(Coding4FunDialog);
         }
 
+        public bool IgnoreBackKey
+        {
+            get { return IsBackKeyOverride; }
+            set { IsBackKeyOverride = value; }
+        }
+
+        protected PhoneApplicationPage Page
+        {
+            get
+            {
+                if (_page != null) return _page;
+
+                var frame = ApplicationSpace.RootFrame as PhoneApplicationFrame;
+                if (frame != null)
+                {
+                    var page = frame.Content as PhoneApplicationPage;
+                    if (page != null)
+                    {
+                        return _page = page;
+                    }
+                }
+
+                return null;
+            }
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+
+            if (IgnoreBackKey && Page != null)
+            {
+                Page.BackKeyPress += PageOnBackKeyPress;
+            }
 
             var host = (Coding4FunDialogHost)GetTemplateChild("ViewContainer");
             var view = ViewLocator.LocateForModel(RootModel, host, Context);
@@ -45,6 +82,11 @@ namespace Caliburn.Micro.Coding4Fun
             {
                 Result = PopUpResult.Ok
             });
+        }
+
+        private void PageOnBackKeyPress(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

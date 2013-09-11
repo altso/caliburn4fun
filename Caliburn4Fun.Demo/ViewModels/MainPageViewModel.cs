@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 
@@ -81,6 +82,19 @@ namespace Caliburn4Fun.Demo.ViewModels
             _windowManager.ShowDialog(dialogViewModel);
             await Task.Delay(TimeSpan.FromSeconds(10));
             dialogViewModel.TryClose();
+        }
+
+        public void ShowUnclosableDialog()
+        {
+            var dialogviewModel = new DialogViewModel()
+            {
+                Title = "Ignore back",
+                Text = "This dialog cannot be closed by pressing back key."
+            };
+            _windowManager.ShowDialog(dialogviewModel, null, new Dictionary<string, object>
+            {
+                { "IgnoreBackKey", true }
+            });
         }
     }
 }
