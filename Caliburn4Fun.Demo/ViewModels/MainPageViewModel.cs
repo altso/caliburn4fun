@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Caliburn.Micro;
 #if ASYNC
 using TaskEx = System.Threading.Tasks.Task;
+#else
+using System.Threading.Tasks;
 #endif
 
 namespace Caliburn4Fun.Demo.ViewModels
@@ -89,7 +90,7 @@ namespace Caliburn4Fun.Demo.ViewModels
 
         public void ShowUnclosableDialog()
         {
-            var dialogviewModel = new DialogViewModel()
+            var dialogviewModel = new DialogViewModel
             {
                 Title = "Ignore back",
                 Text = "This dialog cannot be closed by pressing back key."
