@@ -91,7 +91,14 @@ namespace Caliburn.Micro.Coding4Fun
 
         private void PageOnBackKeyPress(object sender, CancelEventArgs e)
         {
-            e.Cancel = IsOpen;
+            if (IsOpen)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Page.BackKeyPress -= PageOnBackKeyPress;
+            }
         }
     }
 }

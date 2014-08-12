@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Caliburn.Micro.Coding4Fun</id>
-    <version>1.0.1.0</version>
+    <version>1.0.2.2</version>
     <title>Caliburn.Micro.Coding4Fun</title>
     <authors>Alexander Tsoi</authors>
     <owners>Alexander Tsoi</owners>

@@ -90,11 +90,18 @@
     <Compile Include="..\Caliburn4Fun.Demo\DemoBootsrapper.cs">
       <Link>DemoBootsrapper.cs</Link>
     </Compile>
+    <Compile Include="..\Caliburn4Fun.Demo\ViewModels\AboutPageViewModel.cs">
+      <Link>ViewModels\AboutPageViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\Caliburn4Fun.Demo\ViewModels\DialogViewModel.cs">
       <Link>ViewModels\DialogViewModel.cs</Link>
     </Compile>
     <Compile Include="..\Caliburn4Fun.Demo\ViewModels\MainPageViewModel.cs">
       <Link>ViewModels\MainPageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Caliburn4Fun.Demo\Views\AboutPage.xaml.cs">
+      <Link>Views\AboutPage.xaml.cs</Link>
+      <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\Caliburn4Fun.Demo\Views\DialogView.xaml.cs">
       <Link>Views\DialogView.xaml.cs</Link>
@@ -126,6 +133,11 @@
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="..\Caliburn4Fun.Demo\Views\AboutPage.xaml">
+      <Link>Views\AboutPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Page Include="..\Caliburn4Fun.Demo\Views\DialogView.xaml">
       <Link>Views\DialogView.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
