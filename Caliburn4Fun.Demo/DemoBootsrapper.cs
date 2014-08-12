@@ -21,6 +21,7 @@ namespace Caliburn4Fun.Demo
 
             _container.PerRequest<MainPageViewModel>();
             _container.PerRequest<DialogViewModel>();
+            _container.PerRequest<AboutPageViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

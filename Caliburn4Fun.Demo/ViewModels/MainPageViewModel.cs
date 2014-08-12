@@ -12,12 +12,14 @@ namespace Caliburn4Fun.Demo.ViewModels
     public class MainPageViewModel : Screen
     {
         private readonly IWindowManager _windowManager;
+        private readonly INavigationService _navigationService;
         private int _dialogCounter = 1;
         private int _popupCounter = 1;
 
-        public MainPageViewModel(IWindowManager windowManager)
+        public MainPageViewModel(IWindowManager windowManager, INavigationService navigationService)
         {
             _windowManager = windowManager;
+            _navigationService = navigationService;
         }
 
         public int DialogCounter
@@ -88,7 +90,7 @@ namespace Caliburn4Fun.Demo.ViewModels
             dialogViewModel.TryClose();
         }
 
-        public void ShowUnclosableDialog()
+        public async void ShowUnclosableDialog()
         {
             var dialogviewModel = new DialogViewModel
             {
@@ -99,6 +101,8 @@ namespace Caliburn4Fun.Demo.ViewModels
             {
                 { "IgnoreBackKey", true }
             });
+            await TaskEx.Delay(TimeSpan.FromSeconds(5));
+            _navigationService.UriFor<AboutPageViewModel>().Navigate();
         }
     }
 }
