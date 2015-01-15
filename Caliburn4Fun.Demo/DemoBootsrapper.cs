@@ -6,7 +6,7 @@ using Caliburn4Fun.Demo.ViewModels;
 
 namespace Caliburn4Fun.Demo
 {
-    public class DemoBootsrapper : PhoneBootstrapper
+    public class DemoBootsrapper : PhoneBootstrapperBase
     {
         private PhoneContainer _container;
 
